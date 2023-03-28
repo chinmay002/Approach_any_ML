@@ -2,7 +2,7 @@ class Metrics:
     def __init__(self):
         pass
 
-
+#comment
     def accuracy(self,y_true,y_pred):
         '''
         Function to calculate accuracy

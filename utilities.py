@@ -10,7 +10,7 @@ class Metrics:
         :param y_pred: list of predicted values
         :return: accuracy score
         '''
-        correct_counter = 0
+        correct_counter = 0.
         for yt,yp in zip(y_true,y_pred):
             if yt == yp:
                 correct_counter += 1
@@ -76,10 +76,10 @@ class Metrics:
         :param y_pred: list of predicted values
         :return: accuracy score
         """
-        tp = true_positive(y_true, y_pred)
-        fp = false_positive(y_true, y_pred)
-        fn = false_negative(y_true, y_pred)
-        tn = true_negative(y_true, y_pred)
+        tp = self.true_positive(y_true, y_pred)
+        fp = self.false_positive(y_true, y_pred)
+        fn = self.false_negative(y_true, y_pred)
+        tn = self.true_negative(y_true, y_pred)
         accuracy_score = (tp + tn) / (tp + tn + fp + fn)
         return accuracy_score
 
@@ -88,8 +88,8 @@ class Metrics:
         out of all predicted values how many are actual true
         tp/tp+fp
         '''
-        tp = true_positive(y_true,y_pred)
-        fp = false_positive(y_true,y_pred)
+        tp = self.true_positive(y_true,y_pred)
+        fp = self.false_positive(y_true,y_pred)
 
         return tp/(tp+fp)
 
@@ -98,8 +98,8 @@ class Metrics:
         out of all true value, how many were predicted correct
         tp/tp+fn
         '''
-        tp = true_positive(y_true,y_pred)
-        fn = false_negative(y_true,y_pred)
+        tp = self.true_positive(y_true,y_pred)
+        fn = self.false_negative(y_true,y_pred)
 
         return tp/(tp+fn)
 
